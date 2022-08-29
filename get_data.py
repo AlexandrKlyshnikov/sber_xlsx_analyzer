@@ -42,7 +42,7 @@ def get_df_list(folder_path: str, type: str) -> list:
         dataframes.append(pd.read_excel(folder_path+filename, sheet_name = 0, usecols = "B,D,G"))
 
     for df in dataframes:
-        df['Дата'] = (df['Дата'].str[:-7].str.replace(" января ", ".02.")
+        df['Дата'] = (df['Дата'].str[:-7].str.replace(" января ", ".01.")
                                          .str.replace(" февраля ", ".02.")
                                          .str.replace(" марта ", ".03.")
                                          .str.replace(" апреля ", ".04.")
@@ -54,6 +54,5 @@ def get_df_list(folder_path: str, type: str) -> list:
                                          .str.replace(" октября ", ".10.")
                                          .str.replace(" ноября ", ".11.")
                                          .str.replace(" декабря ", ".12."))
-                                                
 
     return dataframes
